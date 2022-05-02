@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -16,18 +17,18 @@ const Header = () => {
                         {/* <!-- Left links --> */}
                         <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
                             <li className="nav-item px-2">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                                <Link className="nav-link active" to="/">Home</Link>
+                            </li>
+
+                            <li className="nav-item pr-2">
+                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/blog">Blog</Link>
+                            </li>
+
+                            <li className="nav-item pr-2">
+                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/inventoris">Inventoris</Link>
                             </li>
                             <li className="nav-item pr-2">
-                                <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#">Features</a>
-                            </li>
-                            <li className="nav-item pr-2">
-                                <a className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" href="#">Pricing</a>
-                            </li>
-                            <li className="nav-item pr-2">
-                                <a className="nav-link disabled text-gray-300 p-0"
-                                >Disabled</a
-                                >
+                            <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Login</Link>
                             </li>
                         </ul>
                         {/* <!-- Left links --> */}
