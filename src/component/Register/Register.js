@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Register = () => {
     return (
         <div>
-            <h1>Register</h1>
+            <h1 className="inline-block px-7 py-3 mt-10 text-blue-600 font-medium text-sm leading-snug uppercase rounded shadow-md focus:outline-none focus:ring-0 active:text-blue-800 text-2xl">Register</h1>
             <section className="h-screen">
                 <div className="container px-6 py-12 h-full">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
@@ -59,9 +59,9 @@ const Register = () => {
                                             id="exampleCheck3"
                                         // checked
                                         />
-                                        <label className="form-check-label inline-block text-gray-800">Remember me</label>
+                                        <label className="form-check-label inline-block text-gray-800">I accept the <span className='cursor-pointer text-blue-600 font-bold'>Terms of Use</span> & <span className='cursor-pointer text-blue-600 font-bold'>Privacy Policy</span> </label>
                                     </div>
-                                   
+
                                 </div>
 
                                 {/* <!-- Submit button --> */}
@@ -70,24 +70,12 @@ const Register = () => {
                                     className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
                                     data-mdb-ripple="true"
                                     data-mdb-ripple-color="light">
-                                    Sign in
+                                    Register
                                 </button>
 
-                                <div
-                                    className="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
-                                >
-                                    <p className="text-center font-semibold mx-4 mb-0">OR</p>
-                                </div>
-
-                                <a className="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3 bg-[#3b5998]">
-                                    {/* <!-- Facebook --> */}
-                                    {/* <FaGoogle className="w-3.5 h-3.5 mr-2"></FaGoogle> */}
-                                    Continue with Google
-                                </a>
-
                                 <p className="text-sm font-semibold mt-2 pt-1 mb-0">
-                                    Don't have an account?
-                                    <Link to="/register" className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out">Register</Link></p>
+                                    Already have an account?
+                                    <Link to="/login" className="text-red-600 hover:text-red-700 focus:text-red-700 transition duration-200 ease-in-out"> LogIn </Link></p>
                             </form>
                         </div>
                     </div>
