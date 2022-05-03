@@ -1,7 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebaseinit';
 
 const Register = () => {
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
+
+
+
+    if (loading) {
+        return <div className="flex justify-center items-center">
+            <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+
+    const handelRegistetionEmailPass = event => {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const password = event.target.password.value;
+        const confirmPass = event.target.confirmPass.value;
+        createUserWithEmailAndPassword(email, password)
+
+    }
+
+
+
     return (
         <div>
             <h1 className="inline-block px-7 py-3 mt-10 text-blue-600 font-medium text-sm leading-snug uppercase rounded shadow-md focus:outline-none focus:ring-0 active:text-blue-800 text-2xl">Register</h1>
@@ -9,18 +35,15 @@ const Register = () => {
                 <div className="container px-6 py-12 h-full">
                     <div className="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
                         <div className="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
-                            <img
-                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-                                className="w-full"
-                                alt="Phone image"
-                            />
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="w-full" alt="Phone image" />
                         </div>
                         <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
-                            <form>
+                            {/* form start here  */}
+                            <form onSubmit={handelRegistetionEmailPass}>
                                 {/* <!-- Name input --> */}
                                 <div className="mb-6">
                                     <input
-                                        type="text"
+                                        type="text" name='name'
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         placeholder="Full Name"
                                     />
@@ -28,7 +51,7 @@ const Register = () => {
                                 {/* <!-- Email input --> */}
                                 <div className="mb-6">
                                     <input
-                                        type="text"
+                                        type="text" name='email'
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         placeholder="Email address"
                                     />
@@ -37,7 +60,7 @@ const Register = () => {
                                 {/* <!-- Password input --> */}
                                 <div className="mb-6">
                                     <input
-                                        type="password"
+                                        type="password" name='password'
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         placeholder="Password"
                                     />
@@ -45,7 +68,7 @@ const Register = () => {
                                 {/* <!--Confirm Password input --> */}
                                 <div className="mb-6">
                                     <input
-                                        type="password"
+                                        type="password" name='confirmPass'
                                         className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                         placeholder="Confirm Password"
                                     />
