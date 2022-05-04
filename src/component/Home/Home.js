@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Inventoris from '../Inventoris/Inventoris';
 import Supplier from '../Supplier/Supplier';
 import './Home.css';
 
 const Home = () => {
+    const [sixProducts, setSixProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/sixproducts')
+            .then(res => res.json())
+            .then(data => setSixProducts(data));
+    }, []);
     return (
         <div>
+
             {/* banar section start here */}
             <div className="container my-6 px-6 mx-auto">
-                <section className="mb-32 background-radial-gradient">
+                <section className="mb-3 background-radial-gradient">
                     <div className="px-6 py-12 md:px-12 text-center lg:text-left">
                         <div className="container mx-auto xl:px-32">
                             <div className="grid lg:grid-cols-2 gap-12 flex items-center">
@@ -29,6 +38,13 @@ const Home = () => {
                 </section>
             </div>
             {/* banar section end here */}
+            {/* products section  */}
+            <section className="container my-24 px-6 mx-auto" >
+                <div className="mb-2 text-gray-800 text-center md:text-left">
+                    {sixProducts.map(product => <Inventoris key={product._id} product={product}></Inventoris>)}
+                </div>
+            </section>
+
 
 
 

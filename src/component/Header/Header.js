@@ -6,7 +6,7 @@ import auth from '../../firebaseinit';
 
 const Header = () => {
     const [user] = useAuthState(auth);
-    console.log(user)
+    // console.log(user)
 
     const handelSingOut = () => {
         signOut();
@@ -39,9 +39,9 @@ const Header = () => {
                             </li>
 
                             {/* use tarnary operater */}
-                            {user?.email ? <Link onSubmit={handelSingOut} className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/">Log Out</Link>
+                            {user ? <Link onSubmit={handelSingOut} className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Log Out</Link>
                                 :
-                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Login</Link>
+                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/">Login</Link>
 
                             }
                         </ul>

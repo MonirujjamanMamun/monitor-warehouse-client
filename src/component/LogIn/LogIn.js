@@ -10,7 +10,6 @@ const LogIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
-
   const handelEmailPass = event => {
     event.preventDefault();
     const email = event.target.email.value;
