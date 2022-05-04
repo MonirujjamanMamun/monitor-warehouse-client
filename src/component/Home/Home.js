@@ -1,80 +1,35 @@
 import React from 'react';
 import Supplier from '../Supplier/Supplier';
+import './Home.css';
 
 const Home = () => {
     return (
         <div>
-            {/* carousel section  */}
-            <div id="carouselExampleIndicators" className="container mx-auto mt-5 carousel slide relative w-10/12" data-bs-ride="carousel">
-                <div className="carousel-indicators rounded absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="0"
-                        className="active"
-                        aria-current="true"
-                        aria-label="Slide 1"
-                    ></button>
-
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="1"
-                        aria-label="Slide 2"
-                    ></button>
-                    
-                    <button
-                        type="button"
-                        data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide-to="2"
-                        aria-label="Slide 3"
-                    ></button>
-                </div>
-
-                <div className="carousel-inner relative w-full overflow-hidden">
-                    <div className="carousel-item active float-left w-full">
-                        <img
-                            src="https://img.freepik.com/free-vector/screen_53876-43865.jpg?size=626&ext=jpg&ga=GA1.1.140505214.1650403882"
-                            className="block w-full h-96"
-                            alt="Wild Landscape"
-                        />
+            {/* banar section start here */}
+            <div className="container my-6 px-6 mx-auto">
+                <section className="mb-32 background-radial-gradient">
+                    <div className="px-6 py-12 md:px-12 text-center lg:text-left">
+                        <div className="container mx-auto xl:px-32">
+                            <div className="grid lg:grid-cols-2 gap-12 flex items-center">
+                                <div className="mt-12 lg:mt-0">
+                                    <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight mb-12 color">The best monitor <br /><span className='color-another'>warehouse</span></h1>
+                                    <a className="inline-block px-7 py-3 mr-2 bg-gray-200 text-gray-700 font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Get started</a>
+                                    <a className="inline-block px-7 py-3 bg-transparent text-white font-medium text-sm leading-snug uppercase rounded focus:outline-none focus:ring-0 transition duration-150 ease-in-out" data-mdb-ripple="true" data-mdb-ripple-color="light" href="#!" role="button">Learn more</a>
+                                </div>
+                                <div className="mb-12 lg:mb-0">
+                                    <img
+                                        src="https://mdbootstrap.com/img/new/ecommerce/horizontal/058.jpg"
+                                        className="w-full rounded-lg shadow-lg"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div className="carousel-item float-left w-full">
-                        <img
-                            src="https://img.freepik.com/free-photo/coded-stuff-screen_236854-21687.jpg?size=626&ext=jpg&ga=GA1.1.140505214.1650403882"
-                            className="block w-full h-fit"
-                            alt="Camera"
-                        />
-                    </div>
-                    <div className="carousel-item float-left w-full">
-                        <img
-                            src="https://img.freepik.com/free-photo/front-view-moder-generic-silver-laptop-with-blank-white-screen-isolated-white_627281-224.jpg?size=626&ext=jpg&ga=GA1.2.140505214.1650403882"
-                            className="block w-full h-96"
-                            alt="Exotic Fruits"
-                        />
-                    </div>
-                </div>
-                <button
-                    className="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev"
-                >
-                    <span className="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button
-                    className="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-                    type="button"
-                    data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next"
-                >
-                    <span className="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                </button>
+                </section>
             </div>
+            {/* banar section end here */}
 
-            
 
 
             <Supplier></Supplier>
