@@ -9,7 +9,7 @@ const Header = () => {
     // console.log(user)
 
     const handelSingOut = () => {
-        signOut();
+        signOut(auth);
     }
 
     return (

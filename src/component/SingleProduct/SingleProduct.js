@@ -1,14 +1,18 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Inventoris = (props) => {
-    // console.log(props.product._id)
-    const { _id, name, img, description, price, quantity, supplierName } = props.product || {};
-    const navigate = useNavigate()
+const SingleProduct = () => {
+    const { id } = useParams()
+    const [product, setProduct] = useState({});
 
-    const handelNavigate = id => {
-        navigate(`/inventoris/${id}`)
-    }
+    useEffect(() => {
+        const url = `http://localhost:5000/inventoris/${id}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setProduct(data))
+    }, []);
+    console.log(product)
+    const { _id, name, img, description, price, quantity, supplierName } = product;
 
     return (
         <div className='container mx-auto my-4'>
@@ -28,17 +32,16 @@ const Inventoris = (props) => {
                 </div>
                 <div>
 
-                    <button onClick={() => handelNavigate(_id)} className="bg-blue-900 text-white p-4 rounded-lg border-0" type="button">
-                        Stock Update
+                    <button className="bg-blue-900 text-white p-4 rounded-lg border-0" type="button">
+                        Delivered
                     </button>
+                    {/* onClick={() => handelNavigate(_id)} */}
 
                 </div>
 
             </div>
         </div>
-
-
     );
 };
 
-export default Inventoris;
+export default SingleProduct;
