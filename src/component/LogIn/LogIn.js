@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseinit';
@@ -9,6 +9,9 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 const LogIn = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const navigate= useNavigate()
+  const location= useLocation();
+  const from = location?.state?.from?.pathname || '/';
 
   const handelEmailPass = event => {
     event.preventDefault();
@@ -19,6 +22,9 @@ const LogIn = () => {
 
   const handelGoogle = () => {
     signInWithGoogle();
+  }
+  if(user){
+    navigate(from, {replace: true})
   }
 
   return (

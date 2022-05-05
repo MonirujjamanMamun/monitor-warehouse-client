@@ -1,15 +1,17 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebaseinit';
 
 const Header = () => {
+    const navigate= useNavigate();
     const [user] = useAuthState(auth);
-    // console.log(user)
+    console.log(user)
 
     const handelSingOut = () => {
         signOut(auth);
+        navigate('/')
     }
 
     return (
@@ -39,9 +41,9 @@ const Header = () => {
                             </li>
 
                             {/* use tarnary operater */}
-                            {user ? <Link onSubmit={handelSingOut} className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Log Out</Link>
+                            {user ? <button onClick={handelSingOut} className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Log Out</button>
                                 :
-                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/">Login</Link>
+                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Login</Link>
 
                             }
                         </ul>
