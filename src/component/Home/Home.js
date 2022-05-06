@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Inventoris from '../Inventoris/Inventoris';
 import Supplier from '../Supplier/Supplier';
 import './Home.css';
 
 const Home = () => {
+    const navigate = useNavigate();
     const [sixProducts, setSixProducts] = useState([]);
 
     useEffect(() => {
@@ -38,12 +40,16 @@ const Home = () => {
                 </section>
             </div>
             {/* banar section end here */}
+
             {/* products section  */}
-            <section className="container my-24 px-6 mx-auto" >
+            <section className="container mt-24 px-6 mx-auto" >
                 <div className="mb-2 text-gray-800 text-center md:text-left">
                     {sixProducts.map(product => <Inventoris key={product._id} product={product}></Inventoris>)}
                 </div>
             </section>
+            <div>
+                <button onClick={() => navigate('/manageInventories')} className="text-white bg-blue-700 py-3 px-5 rounded-md mt-0 cursor-pointer">Manage Inventories</button>
+            </div>
 
 
 

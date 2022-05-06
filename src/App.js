@@ -14,6 +14,7 @@ import ManageItems from './component/ManageItems/ManageItems';
 import ManageInventories from './component/ManageInventories/ManageInventories';
 import Register from './component/Register/Register';
 import SingleProduct from './component/SingleProduct/SingleProduct';
+import AddItem from './component/AddItem/AddItem';
 
 function App() {
   return (
@@ -24,14 +25,19 @@ function App() {
         <Route path='/inventoris' element={
           <RequireAuth>
             <Inventoris></Inventoris>
-          </RequireAuth>}></Route>
-        <Route path='/inventoris/:id' element={<RequireAuth><SingleProduct></SingleProduct></RequireAuth>}></Route>
+          </RequireAuth>}>
+          </Route>
+        <Route path='/inventoris/:id' element={
+        <RequireAuth><SingleProduct></SingleProduct>
+        </RequireAuth>}>
+        </Route>
         <Route path='/manageInventories' element={<ManageInventories></ManageInventories>}></Route>
         <Route path='/myitems' element={<MyItems></MyItems>}></Route>
+        <Route path='/additem' element={<AddItem></AddItem>}></Route>
         <Route path='/manageitems' element={<ManageItems></ManageItems>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/login' element={<LogIn></LogIn>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/login' element={<LogIn></LogIn>}></Route>
         <Route path='*' element={<DataNotFound></DataNotFound>}></Route>
       </Routes>
       <Footer></Footer>
