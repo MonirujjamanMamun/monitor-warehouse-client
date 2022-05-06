@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const ManageInventories = () => {
     const [products, setProduct] = useState([])
@@ -7,7 +8,23 @@ const ManageInventories = () => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setProduct(data))
-    }, [])
+    }, []);
+
+    const handelDeleteProduct = (id) => {
+        const confirm = window.confirm('Are Your Sure, Delete This Product')
+        if (confirm) {
+            const url = `http://localhost:5000/manageInventories/${id}`
+            fetch(url, {
+                method: 'DELETE',
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const restProduct = products.filter(product => product._id !== id)
+                    setProduct(restProduct)
+                    toast('successfully delete')
+                })
+        }
+    }
     return (
         <div>
             <div>
@@ -29,7 +46,11 @@ const ManageInventories = () => {
                                         <p className="text-lg mb-1">Quantity: {product.quantity}</p>
                                         <p className="text-lg mb-1">SupplierName: {product.supplierName}</p>
                                         <p className="text-lg mb-1">Description: {product.description}</p>
+                                        <button onClick={() => handelDeleteProduct(product._id)} className="bg-blue-900 text-white p-4 mt-5 ml-7 rounded-lg border-0" type="button">
+                                            Delete Product
+                                        </button>
                                     </div>
+
                                 </div>
                             </div>
                         }

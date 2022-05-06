@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const SingleProduct = () => {
     const navigate = useNavigate();
@@ -34,14 +35,13 @@ const SingleProduct = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log('success', data)
                     setProduct(data)
-                    alert('Quantity Successfully Added.');
                     event.target.reset();
+                    toast("Successfully Update Your Product Quantity")
                 })
         }
         else {
-            alert('Give Valide Number');
+            toast('Give Valide Number')
         }
     }
 
@@ -61,8 +61,8 @@ const SingleProduct = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setProduct(data)
+                toast('Successfully Delivered Your Product')
             })
     }
 

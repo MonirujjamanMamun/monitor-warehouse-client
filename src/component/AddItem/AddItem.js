@@ -1,96 +1,64 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddItem = () => {
+
+    const handelAddItem = event => {
+        event.preventDefault();
+        const name = event.target.name.value;
+        const supplierName = event.target.suplierName.value;
+        const img = event.target.imgUrl.value;
+        const quantity = event.target.quantity.value;
+        const price = event.target.price.value;
+        const description = event.target.description.value;
+        const updateItem = {
+            name, supplierName, img, quantity, price, description
+        }
+        console.log(updateItem)
+        const url = `http://localhost:5000/additem`;
+        fetch(url, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updateItem)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            toast('Succesfully Added Product')
+        })
+    }
+
+
     return (
         <div>
-            <div className="container my-5 py-5">
-
-                {/* <!--Section: Design Block--> */}
-                <section>
-
-                    <div className="row">
-
-
-                        <div className="col-md-8 mb-4">
-                            <div className="card mb-4">
-                                <div className="card-header py-3">
-                                    <h5 className="mb-0 text-font text-uppercase">Delivery address</h5>
-                                </div>
-                                <div className="card-body">
-                                    <form>
-
-                                        <div className="row mb-4">
-                                            <div className="col">
-                                                <div className="form-outline">
-                                                    <input type="text" id="form11Example1" className="form-control" />
-                                                    <label className="form-label" >First name</label>
-                                                </div>
-                                            </div>
-                                            <div className="col">
-                                                <div className="form-outline">
-                                                    <input type="text" id="form11Example2" className="form-control" />
-                                                    <label className="form-label" >Last name</label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* <!-- Text input --> */}
-                                        <div className="form-outline mb-4">
-                                            <input type="text" id="form11Example3" className="form-control" />
-                                            <label className="form-label" >Company name</label>
-                                        </div>
-
-                                        {/* <!-- Text input --> */}
-                                        <div className="form-outline mb-4">
-                                            <input type="text" id="form11Example4" className="form-control" />
-                                            <label className="form-label" >Address</label>
-                                        </div>
-
-                                        {/* <!-- Email input --> */}
-                                        <div className="form-outline mb-4">
-                                            <input type="email" id="form11Example5" className="form-control" />
-                                            <label className="form-label" >Email</label>
-                                        </div>
-
-                                        {/* <!-- Number input --> */}
-                                        <div className="form-outline mb-4">
-                                            <input type="number" id="form11Example6" className="form-control" />
-                                            <label className="form-label" >Phone</label>
-                                        </div>
-
-                                        {/* <!-- Message input --> */}
-                                        <div className="form-outline mb-4">
-                                            <textarea className="form-control" id="form11Example7" rows="4"></textarea>
-                                            <label className="form-label" >Additional information</label>
-                                        </div>
-
-                                        {/* <!-- Checkbox --> */}
-                                        <div className="form-check d-flex justify-content-center mb-2">
-                                            <input className="form-check-input me-2" type="checkbox" value="" id="form11Example8" />
-                                            <label className="form-check-label">
-                                                Create an account?
-                                            </label>
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div>
-                            <div className="text-center">
-                                <button type="button" className="btn button-order col-md-10">Place order</button>
-                            </div>
-
-                        </div>
-
-
-
-
-
-
+            <div className="container my-7 block p-6 rounded-lg shadow-lg bg-white max-w-md mx-auto">
+                <h1 className='text-2xl text-blue-600 mb-7 font-bold'>Add Your Product</h1>
+                <form onSubmit={handelAddItem}>
+                    <div className="form-group mb-6">
+                        <input type="text" name='name' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7" placeholder="Name" />
+                    </div>
+                    <div className="form-group mb-6">
+                        <input type="text" name='suplierName' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7" placeholder="Suplier Name" />
+                    </div>
+                    <div className="form-group mb-6">
+                        <input type="text" name='imgUrl' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput7" placeholder="Image Url" />
                     </div>
 
-                </section>
-                {/* <!--Section: Design Block--> */}
+                    <div className="form-group mb-6">
+                        <input type="number" name='quantity' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput8" placeholder="Quantity" />
+                    </div>
+                    <div className="form-group mb-6">
+                        <input type="number" name='price' className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInput8" placeholder="Price" />
+                    </div>
 
+                    <div className="form-group mb-6">
+                        <textarea name='description' className=" form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlTextarea13" rows="3" placeholder="Description"></textarea>
+                    </div>
+
+                    <button type="submit" className=" w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Add Item</button>
+                </form>
             </div>
         </div>
     );
