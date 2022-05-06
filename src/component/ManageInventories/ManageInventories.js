@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const ManageInventories = () => {
+    const navigate = useNavigate();
     const [products, setProduct] = useState([])
 
     useEffect(() => {
@@ -57,6 +59,9 @@ const ManageInventories = () => {
                         )}
                     </div>
                 </section>
+                <div>
+                <button onClick={() => navigate('/additem')} className="text-white bg-blue-700 py-3 px-5 rounded-md mt-0 cursor-pointer">Add new item</button>
+            </div>
             </div>
         </div>
     );

@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebaseinit';
 
 const Header = () => {
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const [user] = useAuthState(auth);
     console.log(user)
 
@@ -16,7 +16,7 @@ const Header = () => {
 
     return (
         <>
-            <nav className="relative w-full flex flex-wrap items-center justify-between py-6 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
+            <nav className="relative w-full flex flex-wrap items-center justify-between py-6 bg-blue-900 text-gray-500 hover:text-white focus:text-white shadow-lg navbar navbar-expand-lg">
                 <div className="container-fluid w-full flex flex-wrap items-center justify-between px-6">
                     <button className="navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" className="w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"> <path fill="currentColor"
@@ -25,31 +25,41 @@ const Header = () => {
                         </svg>
                     </button>
                     <div className="collapse navbar-collapse flex-grow items-center" id="navbarSupportedContent">
-                        <a className="text-xl text-black" href="#">Navbar</a>
+                        
                         {/* <!-- Left links --> */}
                         <ul className="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
                             <li className="nav-item px-2">
-                                <Link className="nav-link active" to="/">Home</Link>
+                                <Link className="nav-link text-gray-400 hover:text-white focus:text-white p-0 font-bold text-lg" to="/">Home</Link>
                             </li>
 
                             <li className="nav-item pr-2">
-                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/blog">Blog</Link>
+                                <Link className="nav-link text-gray-400 hover:text-white focus:text-white p-0 font-bold text-lg" to="/blog">Blog</Link>
                             </li>
+                        </ul>
 
-                            <li className="nav-item pr-2">
-                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/inventoris">Inventoris</Link>
-                            </li>
-
+                        {/* <!-- right links --> */}
+                        <ul className="navbar-nav flex flex-col pl-0 list-style-none">
                             {/* use tarnary operater */}
-                            {user ? <button onClick={handelSingOut} className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" >Log Out</button>
+                            {user ? <div>
+                                <Link to='/manageitems'>
+                                    <button className="nav-link text-gray-400 hover:text-white focus:text-white p-0 font-bold text-lg" >Manage Items</button>
+                                </Link>
+                                <Link to='/additem'>
+                                    <button className="nav-link text-gray-400 hover:text-white focus:text-white p-0 font-bold text-lg" >Add Item</button>
+                                </Link>
+                                <Link to="/myitems">
+                                    <button className="nav-link text-gray-400 hover:text-white focus:text-white p-0 font-bold text-lg" >My items</button>
+                                </Link>
+                                <button onClick={handelSingOut} className="bg-blue-700 rounded-full text-gray-300  hover:text-white focus:text-white px-5 py-2 font-bold mx-2" >Log Out</button>
+
+                            </div>
                                 :
-                                <Link className="nav-link text-gray-500 hover:text-gray-700 focus:text-gray-700 p-0" to="/login">Login</Link>
+                                <Link className="bg-blue-700 rounded-full text-gray-300  hover:text-white focus:text-white px-5 py-2 font-bold mx-2" to="/login">Login</Link>
 
                             }
                         </ul>
-                        {/* <!-- Left links --> */}
                     </div>
-                    {/* <!-- Collapsible wrapper --> */}
+                   
                 </div>
             </nav>
 
