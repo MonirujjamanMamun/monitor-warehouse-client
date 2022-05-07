@@ -2,12 +2,12 @@ import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
-import auth from '../../firebaseinit';
+import auth from '../../firebase.init';
+
 
 const Header = () => {
     const navigate = useNavigate();
     const [user] = useAuthState(auth);
-    console.log(user)
 
     const handelSingOut = () => {
         signOut(auth);

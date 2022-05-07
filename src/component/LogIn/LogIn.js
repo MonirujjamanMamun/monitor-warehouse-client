@@ -2,20 +2,24 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import auth from '../../firebaseinit';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 
 const LogIn = () => {
-  const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+  const [signInWithGoogle, googleUser, googleLoading] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth, { sendEmailVerification: true });
   const navigate = useNavigate()
   const location = useLocation();
   const from = location?.state?.from?.pathname || '/';
+  let errorMessage;
 
 
-
-
+  const handelGoogle = () => {
+    signInWithGoogle();
+  }
 
   const handelEmailPass = event => {
     event.preventDefault();
@@ -24,18 +28,27 @@ const LogIn = () => {
     signInWithEmailAndPassword(email, password);
   }
 
-  const handelGoogle = () => {
-    signInWithGoogle();
+  const handelForgetEmailPassword = (event) => {
+    const email = event.target.value;
+    sendPasswordResetEmail(email);
+    toast('Successfully Password Reset')
   }
+
 
   if (user || googleUser) {
     navigate(from, { replace: true })
   }
 
- /*  if (error) {
-    return <p>Error : {error}</p>
-  } */
-
+  if (error) {
+    errorMessage = <p className='text-red-800'>{error?.message}</p>
+  }
+  if (loading || googleLoading) {
+    return <div className="flex justify-center items-center">
+      <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  }
   return (
     <div>
       <h1 className="inline-block px-7 py-3 mt-10 text-blue-600 font-medium text-sm leading-snug uppercase rounded shadow-md focus:outline-none focus:ring-0 active:text-blue-800 text-2xl">Log In</h1>
@@ -70,12 +83,10 @@ const LogIn = () => {
                     <label className="form-check-label inline-block text-gray-800">Remember me</label>
                   </div>
 
-                  <a
-                    href="#!"
-                    className="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
+                  <a onClick={handelForgetEmailPassword} className="cursor-pointer text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out"
                   >Forgot password?</a>
                 </div>
-              
+                {errorMessage}
                 {/* <!-- Submit button --> */}
                 <button type="submit" className="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full" data-mdb-ripple="true" data-mdb-ripple-color="light">
                   Sign in

@@ -3,13 +3,9 @@ import React from 'react';
 const Supplier = () => {
     return (
         <div>
-            {/* <!-- Container for demo purpose --> */}
-            < div className="container my-24 px-6 mx-auto" >
-
-                {/* <!-- Section: Design Block --> */}
+            <div className="container my-24 px-6 mx-auto" >
                 <section className="mb-32 text-gray-800 text-center" >
-                    <h2 className="text-2xl font-bold mb-32">Meet Our <span className="text-blue-600">supplier</span></h2>
-
+                    <h2 className="text-2xl font-bold mb-32">Meet Our <span className="text-blue-600">Supplier</span></h2>
                     <div className="grid gap-x-6 lg:gap-x-12 md:grid-cols-3">
                         <div className="mb-24 md:mb-0">
                             <div className="rounded-lg shadow-lg h-full block bg-white">
@@ -21,7 +17,6 @@ const Supplier = () => {
                                 </div>
                                 <div className="p-6">
                                     <h5 className="text-lg font-bold mb-4">Marta Smith</h5>
-                                    <p className="mb-6">Frontend Developer</p>
                                     <ul className="list-inside flex mx-auto justify-center">
                                         <a href="#!" className="px-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" className="w-4 h-4 text-blue-600">
@@ -56,7 +51,6 @@ const Supplier = () => {
                                 </div>
                                 <div className="p-6">
                                     <h5 className="text-lg font-bold mb-4">Darren Randolph</h5>
-                                    <p className="mb-6">Marketing expert</p>
                                     <ul className="list-inside flex mx-auto justify-center">
                                         <a href="#!" className="px-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="w-4 h-4 text-blue-600">
@@ -91,7 +85,6 @@ const Supplier = () => {
                                 </div>
                                 <div className="p-6">
                                     <h5 className="text-lg font-bold mb-4">Ayat Black</h5>
-                                    <p className="mb-6">Web designer</p>
                                     <ul className="list-inside flex mx-auto justify-center">
                                         <a href="#!" className="px-2">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 text-blue-600">
@@ -117,10 +110,7 @@ const Supplier = () => {
                         </div>
                     </div>
                 </section >
-                {/* <!-- Section: Design Block --> */}
-
             </div >
-            {/* <!-- Container for demo purpose --> */}
         </div>
     );
 };

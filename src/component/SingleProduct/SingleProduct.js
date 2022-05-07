@@ -6,7 +6,7 @@ const SingleProduct = () => {
     const navigate = useNavigate();
     const { id } = useParams()
     const [product, setProduct] = useState({});
-    const { _id, name, img, description, price, quantity, supplierName } = product;
+    const { name, img, description, price, quantity, supplierName } = product;
 
     useEffect(() => {
         const url = `http://localhost:5000/inventoris/${id}`;

@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Fasility from '../Fasility/Fasility';
 import Inventoris from '../Inventoris/Inventoris';
 import Supplier from '../Supplier/Supplier';
 import './Home.css';
 
 const Home = () => {
+    const [loading, setLoging] = useState(false)
     const navigate = useNavigate();
     const [sixProducts, setSixProducts] = useState([]);
 
     useEffect(() => {
+        setLoging(true)
         fetch('http://localhost:5000/sixproducts')
             .then(res => res.json())
             .then(data => setSixProducts(data));
+        setLoging(false)
     }, []);
+
+    if (loading) {
+        return <div className="flex justify-center items-center">
+            <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+
     return (
         <div>
 
@@ -29,7 +42,7 @@ const Home = () => {
                                 </div>
                                 <div className="mb-12 lg:mb-0">
                                     <img
-                                        src="https://mdbootstrap.com/img/new/ecommerce/horizontal/058.jpg"
+                                        src="https://img.freepik.com/free-photo/blank-desktop-computer_74190-5685.jpg?size=338&ext=jpg&ga=GA1.2.140505214.1650403882"
                                         className="w-full rounded-lg shadow-lg"
                                         alt=""
                                     />
@@ -47,13 +60,11 @@ const Home = () => {
                     {sixProducts.map(product => <Inventoris key={product._id} product={product}></Inventoris>)}
                 </div>
             </section>
+            {/* manageInventories navigate button */}
             <div>
                 <button onClick={() => navigate('/manageInventories')} className="text-white bg-blue-700 py-3 px-5 rounded-md mt-0 cursor-pointer">Manage Inventories</button>
             </div>
-
-
-
-
+            <Fasility></Fasility>
             <Supplier></Supplier>
         </div>
     );

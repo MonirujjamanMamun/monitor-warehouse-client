@@ -4,14 +4,16 @@ import { toast } from 'react-toastify';
 
 const ManageInventories = () => {
     const navigate = useNavigate();
-    const [products, setProduct] = useState([])
 
+    // all product load 
+    const [products, setProduct] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
 
+    // quantity incrise one 
     const handelDeleteProduct = (id) => {
         const confirm = window.confirm('Are Your Sure, Delete This Product')
         if (confirm) {
@@ -60,8 +62,8 @@ const ManageInventories = () => {
                     </div>
                 </section>
                 <div>
-                <button onClick={() => navigate('/additem')} className="text-white bg-blue-700 py-3 px-5 rounded-md mt-0 cursor-pointer">Add new item</button>
-            </div>
+                    <button onClick={() => navigate('/additem')} className="text-white bg-blue-700 py-3 px-5 rounded-md mt-0 cursor-pointer">Add new item</button>
+                </div>
             </div>
         </div>
     );
