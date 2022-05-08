@@ -12,7 +12,7 @@ const Home = () => {
 
     useEffect(() => {
         setLoging(true)
-        fetch('http://localhost:5000/sixproducts')
+        fetch('https://nameless-journey-03794.herokuapp.com/sixproducts')
             .then(res => res.json())
             .then(data => setSixProducts(data));
         setLoging(false)

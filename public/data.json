@@ -1,0 +1,58 @@
+[
+    {
+        "name": "SAMSUNG T350 Series 22-Inch FHD 1080p Computer Monitor, 75Hz, IPS Panel, HDMI, VGA (D-Sub)",
+        "img": "https://m.media-amazon.com/images/I/61B8Lq5NXmL._AC_SX679_.jpg",
+        "description": "ALL-EXPANSIVE VIEW: The 3-sided borderless display brings a clean and modern aesthetic to any working environment. In a multi-monitor setup, the displays line up seamlessly for a virtually gapless view without distractions",
+        "price": "$219",
+        "quantity": "8",
+        "supplierName": "Darren Randolph"
+    },
+    {
+        "name": "Philips 271E1S 27ins Frameless Monitor, Full HD IPS 1080P, 124% sRGB, FreeSync 75Hz, VESA",
+        "img": "https://m.media-amazon.com/images/I/714IXVXrF-L._AC_SX679_.jpg",
+        "description": "Superb Picture Quality: Ips Led Wide View Technology With 106% Srgb & 91% Ntsc Color Gamut Coverage Designed For Your Well-Being: Lowblue Mode Reduces Harmful Shortwave Blue Light For Your Wellbeing + Flicker-Free Technology Regulates Brightness And Reduces Eye Fatigue",
+        "price": "$219",
+        "quantity": "12",
+        "supplierName": "Marta Smith"
+    },
+    {
+        "name": "AOC Q32V3S 32ins 2560x1440 2K QHD Monitor, VA Panel, 75Hz Refresh Rate for Casual Gaming, 103% sRGB Coverage",
+        "img": "https://m.media-amazon.com/images/I/61Cp4h5tMdL._AC_SX679_.jpg",
+        "description": "AOC 32ins (31.5ins viewable) widescreen monitor with 2K QHD 2560 x 1440 resolution VA panel delivers superior consistency in color temperature, wide viewing angles, and crisp contrast to ensure excellent image reproduction",
+        "price": "$218",
+        "quantity": "8",
+        "supplierName": "Ayat Black"
+    },
+    {
+        "name": "ASUS 27ins 1080P Monitor (VA27DCP) - Full HD, IPS, 75Hz, USB-C 65W Power Delivery, Speakers, Adaptive-Sync/FreeSync, Eye Care, Low Blue Light, Flicker Free,",
+        "img": "https://m.media-amazon.com/images/I/714UcAhpUNL._AC_SX679_.jpg",
+        "description": "27-inch Full HD (1920x1080) LED backlight display with IPS 178° wide viewing angle panel Up to 75Hz refresh rate with Adaptive-Sync/FreeSync technology to eliminate tracing and ensure crisp and clear video playback",
+        "price": "235",
+        "quantity": "10",
+        "supplierName": "Marta Smith"
+    },
+    {
+        "name": "AOPEN 27HC5UR Pbmiipx 27ins 1500R Curved Zero-Frame WQHD (2560 x 1440) Gaming Monitor | AMD FreeSync Premium Technology | Up to 165Hz",
+        "img": "https://m.media-amazon.com/images/I/81qcoFcSroS._AC_SX679_.jpg",
+        "description": "27ins WQHD (2560 x 1440) Curved Widescreen VA Display with AMD FreeSync Premium Technology Refresh Rate: Up to 165Hz | Response Time: 1ms (TVR) | Pixel Pitch: 0.2331mm",
+        "price": "$259",
+        "quantity": "9",
+        "supplierName": "Ayat Black"
+    },
+    {
+        "name": "Nixeus EDG 27” Fast IPS KSF LED 2560 x 1440 AMD FreeSync Premium Certified 165Hz Gaming Monitor",
+        "img": "https://m.media-amazon.com/images/I/71h8XRlmJPL._AC_SX679_.jpg",
+        "description": "27ins Fast IPS KSF LED (AHVA) with Native 2560 x 1440 Resolution. Native Refresh Rate: 165Hz for DisplayPort with AMD Radeon FreeSync Premium Certified Range for 30Hz - 165Hz. 144Hz for HDMI with AMD Radeon FreeSync Premium Certified Range for 30Hz - 144Hz.",
+        "price": "$339",
+        "quantity": "15",
+        "supplierName": "Darren Randolph"
+    },
+    {
+        "name": "LG 27GL83A-B 27 Inch Ultragear QHD IPS 1ms NVIDIA G-SYNC Compatible Gaming Monitor, Black",
+        "img": "https://m.media-amazon.com/images/I/81dAe2wXIqL._AC_SX679_.jpg",
+        "description": "27 inch QHD (2560 X 1440) IPS display IPS 1ms response time & 144Hz refresh rate NVIDIA G-SYNC Compatible. Surface Treatment-Haze 25%, 3H 3-Side virtually borderless design",
+      "price": "$296",
+        "quantity": "50",
+        "supplierName": "Marta Smith"
+    }
+]

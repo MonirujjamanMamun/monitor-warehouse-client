@@ -9,7 +9,7 @@ const SingleProduct = () => {
     const { name, img, description, price, quantity, supplierName } = product;
 
     useEffect(() => {
-        const url = `http://localhost:5000/inventoris/${id}`;
+        const url = `https://nameless-journey-03794.herokuapp.com/inventoris/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
@@ -25,7 +25,7 @@ const SingleProduct = () => {
             const updateProduct = { quantity: total, ...rest }
             // console.log(updateProduct)
 
-            const url = `http://localhost:5000/inventoris/${id}`;
+            const url = `https://nameless-journey-03794.herokuapp.com/inventoris/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -51,7 +51,7 @@ const SingleProduct = () => {
         const total = quantity - 1;
         const updateProduct = { quantity: total, ...rest }
         // console.log(updateProduct)
-        const url = `http://localhost:5000/inventoris/${id}`;
+        const url = `https://nameless-journey-03794.herokuapp.com/inventoris/${id}`;
         fetch(url, {
             method: "PUT",
             headers: {

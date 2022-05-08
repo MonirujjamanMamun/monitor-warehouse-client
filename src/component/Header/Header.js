@@ -35,6 +35,9 @@ const Header = () => {
                             <li className="nav-item pr-2">
                                 <Link className="nav-link text-gray-400 hover:text-white focus:text-white p-0 font-bold text-lg" to="/blog">Blog</Link>
                             </li>
+                            <li className="nav-item pr-2">
+                                <Link className="nav-link text-gray-400 hover:text-white focus:text-white p-0 font-bold text-lg" to="/manageInventories">Inventories</Link>
+                            </li>
                         </ul>
 
                         {/* <!-- right links --> */}

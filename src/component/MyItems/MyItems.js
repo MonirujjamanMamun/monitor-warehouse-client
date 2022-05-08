@@ -10,7 +10,7 @@ const MyItems = () => {
     const [products, setProduct] = useState([])
     useEffect(() => {
         const email = user.email;
-        fetch(`http://localhost:5000/products?email=${email}`)
+        fetch(`https://nameless-journey-03794.herokuapp.com/products?email=${email}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [products]);
@@ -19,7 +19,7 @@ const MyItems = () => {
     const handelDeleteProduct = (id) => {
         const confirm = window.confirm('Are Your Sure, Delete This Product')
         if (confirm) {
-            const url = `http://localhost:5000/manageInventories/${id}`
+            const url = `https://nameless-journey-03794.herokuapp.com/manageInventories/${id}`
             fetch(url, {
                 method: 'DELETE',
             })

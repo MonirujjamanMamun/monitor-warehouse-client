@@ -8,7 +8,7 @@ const ManageInventories = () => {
     // all product load 
     const [products, setProduct] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://nameless-journey-03794.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProduct(data))
     }, []);
@@ -17,7 +17,7 @@ const ManageInventories = () => {
     const handelDeleteProduct = (id) => {
         const confirm = window.confirm('Are Your Sure, Delete This Product')
         if (confirm) {
-            const url = `http://localhost:5000/manageInventories/${id}`
+            const url = `https://nameless-journey-03794.herokuapp.com/manageInventories/${id}`
             fetch(url, {
                 method: 'DELETE',
             })

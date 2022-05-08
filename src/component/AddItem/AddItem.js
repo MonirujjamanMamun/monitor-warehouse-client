@@ -20,7 +20,7 @@ const AddItem = () => {
             name, supplierName, img, quantity, price, description, email
         }
         console.log(updateItem)
-        const url = `http://localhost:5000/additem`;
+        const url = `https://nameless-journey-03794.herokuapp.com/additem`;
         fetch(url, {
             method: "POST",
             headers: {
