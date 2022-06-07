@@ -21,7 +21,4 @@ In the project directory, you can run:
 - Use Tailwind css
 - Use Tailwind-Elements 
 - Use Firebase
-- Use Node Js
-- Use Express Js
-- Use MongoDb DataBase
-- Client site
+
